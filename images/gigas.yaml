@@ -25,9 +25,9 @@ layers:
   - {t: C, h: Alt}
   - D
   - V
-  - ⌘⇧[
+  - ← tab
   - MUTE
-  - ⌘⇧]
+  - tab →
   - K
   - H
   - {t: ',', h: Alt, s: ;}
@@ -216,7 +216,7 @@ layers:
   - Num 🔒
   - ''
   - BRI DN
-  - '&flash 8'
+  - flash
   - BRI UP
   - ZMK Studio
   - {t: BT 1, h: clear 1}
@@ -233,9 +233,9 @@ layers:
   - ''
   - ''
   - ''
-  - '&vim N7'
-  - '&vim N8'
-  - '&vim N9'
+  - tab 7
+  - tab 8
+  - tab 9
   - ''
   - ''
   - ''
@@ -244,37 +244,37 @@ layers:
   - ''
   - ''
   - ''
-  - '&vim N4'
-  - '&vim N5'
-  - '&vim N6'
+  - tab 4
+  - tab 5
+  - tab 6
   - ''
   - ''
   - ''
   - ''
   - ''
   - ''
-  - '&vtabprv'
-  - '&vimQ'
-  - '&vtabnxt'
+  - ← tab
+  - QUIT!
+  - tab →
   - ''
-  - '&vim N1'
-  - '&vim N2'
-  - '&vim N3'
-  - '&vim Q'
+  - tab 1
+  - tab 2
+  - tab 3
+  - exit
   - ''
   - ''
   - ''
-  - '&vim W'
+  - save
   - ''
   tmux:
   - ''
   - ''
   - ''
   - ''
-  - '&tmux N7'
-  - '&tmux N8'
-  - '&tmux N9'
-  - '&tmux QMARK'
+  - tab 7
+  - tab 8
+  - tab 9
+  - help
   - ''
   - ''
   - ''
@@ -282,28 +282,28 @@ layers:
   - ''
   - ''
   - ''
-  - '&tmux N4'
-  - '&tmux N5'
-  - '&tmux N6'
+  - tab 4
+  - tab 5
+  - tab 6
   - ''
   - {type: held}
   - ''
   - ''
   - ''
   - ''
-  - '&tmux P'
-  - '&tmux D'
-  - '&tmux N'
+  - ← tab
+  - detach
+  - tab →
   - ''
-  - '&tmux N1'
-  - '&tmux N2'
-  - '&tmux N3'
-  - ''
-  - ''
+  - tab 1
+  - tab 2
+  - tab 3
   - ''
   - ''
-  - '&tmux C'
-  - '&tmux A'
+  - ''
+  - ''
+  - new
+  - rename
   flash mode: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
 combos:
 - p: [0, 7]
@@ -382,7 +382,7 @@ combos:
 - p: [5, 16]
   k: mouse ↑
   l: [flash mode]
-- p: [15, 28]
+- p: [16, 29]
   k: mouse ↓
   l: [flash mode]
 - p: [4, 15]
@@ -404,6 +404,6 @@ combos:
   k: scroll →
   l: [flash mode]
 - p: [12, 14]
-  k: '&flash 8'
+  k: flash
   l: [keyboard]
   d: true

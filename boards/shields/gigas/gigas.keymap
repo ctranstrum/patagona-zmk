@@ -1,0 +1,320 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/pointing.h>
+#include <behaviors/rgbled_widget.dtsi>
+#include "gigas_combos.dtsi"
+#include "gigas_behaviors.dtsi"
+#include "gigas_macros.dtsi"
+
+// Single mods
+#define CMD(key) &kp LG(key)
+#define CTL(key) &kp LC(key)
+
+// Multiple mods
+#define GC(key) &kp LG(LC(key))
+#define GS(key) &kp LG(LS(key))
+#define GCS(key) &kp LG(LC(LS(key)))
+#define HYPR(key) &kp LG(LA(LC(LS(key))))
+
+// Shortcuts for home row mods
+#define Glb &hm GLOBE
+#define Sft &hm LSHFT
+#define Ctl &hm LCTRL
+#define Opt &hm LALT
+#define Cmd &hm LGUI
+#define Alt &hm RALT
+
+// Magic bluetooth button
+#define BT_(btnum) &bt_key btnum btnum
+
+/ {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        fn_layer {
+            if-layers = <1 2>;
+            then-layer = <4>;
+        };
+        kbd_layer {
+            if-layers = <2 3>;
+            then-layer = <5>;
+        };
+    };
+
+    macros {
+        bt_clr: bluetooth_clear {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1 &bt_sel MACRO_PLACEHOLDER>, <&bt BT_CLR>;
+        };
+
+        bt_sel: bluetooth_select {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&out OUT_BLE>, <&macro_param_1to2 &bt BT_SEL MACRO_PLACEHOLDER>;
+        };
+
+        usb_sel: usb_select {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&out OUT_USB>;
+        };
+
+        flash: dongle_bootloader {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            bindings = <&macro_param_1to1 &to MACRO_PLACEHOLDER>, <&bootloader>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        colemak {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "Colemak"               ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃   Q   ┃   W   ┃   F   ┃   P   ┃                                          ┃   L   ┃   U   ┃   Y   ┃  ' "  ┃
+   &lt 6 Q   &kp W   &kp F   &kp P                                              &kp L   &kp U   &kp Y  &kp SQT
+// ┃  vim  ┃       ┃       ┃       ┃                                          ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃   A   ┃   R   ┃   S   ┃   T   ┃   G   ┃        ┏━━━━━━━━┓        ┃   M   ┃   N   ┃   E   ┃   I   ┃   O   ┃
+     Sft A   Ctl R   Opt S   Cmd T   Glb G         &kp C_VOL_UP         Glb M   Cmd N   Opt E   Ctl I   Sft O
+// ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ Globe ┃        ┃  vol+  ┃        ┃ Globe ┃  Cmd  ┃  Opt  ┃ Ctrl  ┃ Shift ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃   Z   ┃   X   ┃   C   ┃   D   ┃   V   ┃┃<- tab ┃  MUTE  ┃ tab ->┃┃   K   ┃   H   ┃  , ;  ┃  . :  ┃  / \  ┃
+   &lt 7 Z   &kp X   Alt C   &kp D   &kp V GS(LBKT) &kp C_MUTE GS(RBKT) &kp K &kp H &hmcs RALT 0 &mdc    &msb
+// ┃ tmux  ┃       ┃ R Alt ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃ R Alt ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃   -   ┃ SHIFT ┃┃  vol-  ┃┃ SPACE ┃   *   ┃
+                            &lt 1 MINUS &lsscw 2 0 &kp C_VOL_DN &lt 3 SPC &lt 3 STAR
+//                                 ┃  num  ┃  nav  ┃┗━━━━━━━━┛┃  sym  ┃  sym  ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        num {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "numpad"                ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃  Esc  ┃       ┃scrnsht┃scrn cp┃                                          ┃   7   ┃   8   ┃   9   ┃   -   ┃
+    &kp ESC  &none   GS(N4) GCS(N4)                                            &kp N7  &kp N8 &kp N9 &kp MINUS
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃ CtrlA ┃ Bkspc ┃ SPACE ┃  Tab  ┃ Enter ┃        ┏━━━━━━━━┓        ┃   /   ┃   4   ┃   5   ┃   6   ┃   +   ┃
+    CTL(A) Ctl BSPC Opt SPC Cmd TAB Glb RET         &kp C_PREV        &kp SLASH &kp N4  &kp N5  &kp N6 &kp PLUS
+// ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ Globe ┃        ┃  ||<|  ┃        ┃       ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃ CtrlZ ┃ CtrlX ┃ CtrlC ┃ CtrlD ┃ CtrlV ┃┃ <|<|  ┃num lock┃  |>|> ┃┃   *   ┃   1   ┃   2   ┃   3   ┃   =   ┃
+     CTL(Z)  CTL(X)  CTL(C) CTL(D) CTL(V) &kp C_RW &kp KP_NUM &kp C_FF &kp STAR &kp N1 &kp N2 &kp N3 &kp EQUAL
+// ┃       ┃       ┃ R Alt ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃ ##### ┃       ┃┃  |>||  ┃┃   0   ┃   .   ┃
+                                    &trans   &mo 2  &kp C_NEXT &kp N0  &kp DOT
+//                                 ┃  num  ┃ func  ┃┗━━━━━━━━┛┃       ┃       ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        nav {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "navigation"            ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃  Esc  ┃       ┃scrnsht┃scrn cp┃                                          ┃  Esc  ┃       ┃  Del  ┃ Bkspc ┃
+    &kp ESC  &none   GS(N4) GCS(N4)                                           &kp ESC  &none  &kp DEL &kp BSPC
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃ CtrlA ┃ Bkspc ┃ SPACE ┃  Tab  ┃ Enter ┃        ┏━━━━━━━━┓        ┃ Pg Up ┃ Left  ┃  Up   ┃ Right ┃ Enter ┃
+ Sft LG(A) Ctl BSPC Opt SPC Cmd TAB Glb RET        &msc SCRL_UP      &kp PG_UP &kp LEFT &kp UP &kp RIGHT &kp RET
+// ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ Globe ┃        ┃scrollup┃        ┃       ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃ Cmd Z ┃ Cmd X ┃ Cmd C ┃ Cmd D ┃ Cmd V ┃┃<- scrl┃   |>   ┃scrl ->┃┃ Pg Dn ┃ Home  ┃ Down  ┃  End  ┃ SPACE ┃
+CMD(Z) CMD(X) CMD(C) CMD(D) CMD(V) &msc SCRL_LEFT &kp C_PP &msc SCRL_RIGHT &kp PG_DN &kp HOME &kp DOWN &kp END &kp SPC
+// ┃       ┃       ┃ R Alt ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃       ┃ ##### ┃┃scrolldn┃┃  Tab  ┃ SPACE ┃
+                                  &mo 1 &trans &msc SCRL_DOWN &lt 3 TAB &kp SPC
+//                                 ┃ func  ┃       ┃┗━━━━━━━━┛┃ keybd ┃       ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        sym {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "symbols"               ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃   `   ┃   #   ┃   %   ┃   *   ┃                                          ┃  Esc  ┃ CtrlU ┃  Del  ┃ Bkspc ┃
+&kp GRAVE &kp HASH &kp PRCNT &kp STAR                                          &kp ESC CTL(U) &kp DEL &kp BSPC
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃   ^   ┃   @   ┃   !   ┃   =   ┃   $   ┃        ┏━━━━━━━━┓        ┃ Pg Up ┃ Left  ┃  Up   ┃ Right ┃ Enter ┃
+&kp CARET &kp AT &kp EXCL &kp EQUAL &kp DLLR       &msc SCRL_UP      Glb PG_UP Cmd LEFT Opt UP Ctl RIGHT &kp RET
+// ┃       ┃       ┃       ┃       ┃       ┃        ┃scrollup┃        ┃ Globe ┃  Cmd  ┃  Opt  ┃ Ctrl  ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃   ~   ┃   |   ┃   +   ┃   &   ┃   ?   ┃┃<- scrl┃   |>   ┃scrl ->┃┃ Pg Dn ┃ Home  ┃ Down  ┃  End  ┃ SPACE ┃
+&kp TILDE &kp PIPE &kp PLUS &kp AMPS &kp QMARK &msc SCRL_LEFT &kp C_PP &msc SCRL_RIGHT &kp PG_DN &kp HOME Alt DOWN &kp END &kp SPC
+// ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃ R Alt ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃   _   ┃   /   ┃┃ scroll ┃┃ ##### ┃ ##### ┃
+                                &kp UNDER &lt 2 SLASH &msc SCRL_DOWN &trans &trans
+//                                 ┃       ┃ keybd ┃┗━━━━━━━━┛┃       ┃       ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        fn {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "function"              ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃       ┃       ┃       ┃       ┃                                          ┃  F7   ┃  F8   ┃  F9   ┃  F12  ┃
+     &none   &none   &none   &none                                             &kp F7  &kp F8  &kp F9  &kp F12
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃       ┃       ┃       ┃       ┃        ┏━━━━━━━━┓        ┃       ┃  F4   ┃  F5   ┃  F6   ┃  F11  ┃
+&kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp GLOBE    &kp C_BRI_UP         &none  &kp F4  &kp F5  &kp F6  &kp F11
+// ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ Globe ┃        ┃bright +┃        ┃       ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃       ┃       ┃       ┃       ┃┃bright-┃capslock┃bright+┃┃       ┃  F1   ┃  F2   ┃  F3   ┃  F10  ┃
+     &none   &none  &none &none &none &kp C_BRI_DN &kp CAPS &kp C_BRI_UP &none &kp F1  &kp F2 &kp F3  &kp F10
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋┻━━━━━━┳╋━━━━━━━━╋┳━━━━━━┻╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃ ##### ┃ ##### ┃┃bright -┃┃       ┃       ┃
+                                    &trans  &trans &kp C_BRI_DN &none   &none
+//                                 ┗━━━━━━━┻━━━━━━━┛┗━━━━━━━━┛┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        kbd {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "keyboard"              ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃c stat ┃       ┃scrnsht┃scrn cp┃                                          ┃launchp┃  USB  ┃       ┃battery┃
+   &ind_con  &none   GS(N4) GCS(N4)                                           HYPR(N4) &usb_sel &none &ind_bat
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃ prev  ┃ play  ┃ next  ┃       ┃        ┏━━━━━━━━┓        ┃mission┃  BT4  ┃  BT5  ┃       ┃       ┃
+   &none &kp C_PREV &kp C_PP &kp C_NEXT &none      &kp C_BRI_UP        CTL(UP)  BT_(3)  BT_(4)  &none   &none
+// ┃       ┃       ┃       ┃       ┃       ┃        ┃bright +┃        ┃control┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃scrn lk┃ mute  ┃caps lk┃numlock┃       ┃┃bright-┃ flash  ┃bright+┃┃studio ┃  BT1  ┃  BT2  ┃  BT3  ┃       ┃
+GC(Q) &kp C_MUTE &kp CAPS &kp KP_NUM &none &kp C_BRI_DN &flash 8 &kp C_BRI_UP &studio_unlock BT_(0) BT_(1) BT_(2) &none
+// ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃ unlock┃       ┃       ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃ ##### ┃ ##### ┃┃bright -┃┃ ##### ┃ ##### ┃
+                                    &trans  &trans &kp C_BRI_DN &trans &trans
+//                                 ┗━━━━━━━┻━━━━━━━┛┗━━━━━━━━┛┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        vim {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "vim"                   ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃ ##### ┃       ┃       ┃       ┃                                          ┃ tab 7 ┃ tab 8 ┃ tab 9 ┃       ┃
+    &trans   &none   &none   &none                                             &vim N7 &vim N8 &vim N9  &none
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃       ┃       ┃       ┃       ┃        ┏━━━━━━━━┓        ┃       ┃ tab 4 ┃ tab 5 ┃ tab 6 ┃       ┃
+     &none   &none   &none   &none   &none            &none             &none  &vim N4 &vim N5 &vim N6  &none
+// ┃       ┃       ┃       ┃       ┃       ┃        ┃        ┃        ┃       ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃       ┃       ┃       ┃       ┃┃prevtab┃  QUIT  ┃nexttab┃┃       ┃ tab 1 ┃ tab 2 ┃ tab 3 ┃ exit  ┃
+     &none   &none   &none   &none   &none  &vtabprv  &vimQ  &vtabnxt  &none   &vim N1 &vim N2 &vim N3 &vim Q
+// ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃       ┃       ┃┃        ┃┃ save  ┃       ┃
+                                     &none    &none   &none    &vim W   &none
+//                                 ┃       ┃       ┃┗━━━━━━━━┛┃       ┃       ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        tmux {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "tmux"                  ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃       ┃       ┃       ┃       ┃                                          ┃ tab 7 ┃ tab 8 ┃ tab 9 ┃ help  ┃
+     &none   &none   &none   &none                                           &tmux N7 &tmux N8 &tmux N9 &tmux QMARK
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃       ┃       ┃       ┃       ┃        ┏━━━━━━━━┓        ┃       ┃ tab 4 ┃ tab 5 ┃ tab 6 ┃       ┃
+     &none   &none   &none   &none   &none            &none            &none &tmux N4 &tmux N5 &tmux N6 &none
+// ┃       ┃       ┃       ┃       ┃       ┃        ┃        ┃        ┃       ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃ ##### ┃       ┃       ┃       ┃       ┃┃prevtab┃ detach ┃nexttab┃┃       ┃ tab 1 ┃ tab 2 ┃ tab 3 ┃       ┃
+    &trans   &none   &none   &none   &none   &tmux P &tmux D  &tmux N  &none &tmux N1 &tmux N2 &tmux N3 &none
+// ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃       ┃       ┃┃        ┃┃  new  ┃rename ┃
+                                     &none    &none   &none    &tmux C &tmux A
+//                                 ┃       ┃       ┃┗━━━━━━━━┛┃       ┃       ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        flash {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "flash mode"            ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃       ┃       ┃       ┃       ┃                                          ┃       ┃       ┃       ┃       ┃
+     &none   &none   &none   &none                                              &none   &none   &none   &none
+// ┃       ┃       ┃       ┃       ┃                                          ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃       ┃       ┃       ┃       ┃        ┏━━━━━━━━┓        ┃       ┃       ┃       ┃       ┃       ┃
+     &none   &none   &none   &none   &none            &none             &none   &none   &none   &none   &none
+// ┃       ┃       ┃       ┃       ┃       ┃        ┃        ┃        ┃       ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃       ┃       ┃       ┃       ┃       ┃┃       ┃        ┃       ┃┃       ┃       ┃       ┃       ┃       ┃
+     &none   &none   &none   &none   &none    &none   &none    &none    &none   &none   &none   &none   &none
+// ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃       ┃       ┃┃        ┃┃       ┃       ┃
+                                     &none    &none   &none     &none   &none
+//                                 ┃       ┃       ┃┗━━━━━━━━┛┃       ┃       ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        // Extra empty layers for ZMK Studio
+        layer9 {
+            status = "reserved";
+        };
+
+        layer10 {
+            status = "reserved";
+        };
+
+        layer11 {
+            status = "reserved";
+        };
+
+        layer12 {
+            status = "reserved";
+        };
+
+        layer13 {
+            status = "reserved";
+        };
+
+        layer14 {
+            status = "reserved";
+        };
+
+        layer15 {
+            status = "reserved";
+        };
+    };
+};
+
+// vim: expandtab softtabstop=4 shiftwidth=4 filetype=dts

@@ -1,0 +1,44 @@
+/ {
+    chosen {
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan_chuck {
+        compatible = "zmk,kscan-gpio-matrix";
+
+        diode-direction = "col2row";
+
+        col-gpios
+            = <&xiao_d 0 GPIO_ACTIVE_HIGH>  // pinky, ring
+            , <&xiao_d 1 GPIO_ACTIVE_HIGH>  // middle, index
+            , <&xiao_d 2 GPIO_ACTIVE_HIGH>  // inner
+            , <&xiao_d 9 GPIO_ACTIVE_HIGH>  // index, middle
+            , <&xiao_d 10 GPIO_ACTIVE_HIGH> // ring, pinky
+            , <&gpio0 10 GPIO_ACTIVE_HIGH>  // NFC1 (thumbs)
+            , <&gpio0 9 GPIO_ACTIVE_HIGH>   // NFC2 (for dpad)
+            ;
+
+        row-gpios
+            = <&xiao_d 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // top
+            , <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // middle
+            , <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // bottom
+            , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // top
+            , <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // middle
+            , <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // bottom
+            ;
+
+        wakeup-source;
+    };
+};
+
+// For bigger batteries, we want to enable faster charging
+&gpio0 {
+    fastbatcharge: fast-battery-charge {
+        gpio-hog;
+        gpios = <13 GPIO_ACTIVE_HIGH>;
+        output-low;
+        line-name = "Fast Battery Charge";
+    };
+};
+
+// vim: expandtab softtabstop=4 shiftwidth=4

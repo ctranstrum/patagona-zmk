@@ -1,0 +1,8 @@
+config SHIELD_GIGAS_UNIBODY
+    def_bool $(shields_list_contains,gigas_unibody)
+
+config SHIELD_GIGAS_DONGLE
+    def_bool $(shields_list_contains,gigas_dongle)
+
+config SHIELD_GIGAS_PERIPHERAL
+    def_bool $(shields_list_contains,gigas_peripheral)

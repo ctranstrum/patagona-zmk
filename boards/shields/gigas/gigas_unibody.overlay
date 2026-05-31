@@ -1,0 +1,4 @@
+#include "gigas.dtsi"
+#include "gigas_kscan.dtsi"
+
+// vim: expandtab softtabstop=4 shiftwidth=4 filetype=devicetree

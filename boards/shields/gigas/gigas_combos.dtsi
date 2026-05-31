@@ -153,7 +153,7 @@
         };
 
         combo_mouse_down {
-            key-positions = <15 28>;
+            key-positions = <16 29>;
             bindings = <&mmv MOVE_DOWN>;
             layers = <0>;
         };

@@ -32,13 +32,6 @@
             bindings = <&kp>, <&mcs>;
         };
 
-        lp_mc: launch_pad_mission_control {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <HYPR(N4)>, <&kp LC(UP)>;
-        };
-
         lsscw: layer_sticky_shift_caps_word {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -66,19 +59,6 @@
             #binding-cells = <0>;
             bindings = <&kp SLASH>, <&kp BACKSLASH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        key_rotation: sensor_rotation_kp {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&kp>, <&kp>;
-        };
-
-        scroll_rotation: sensor_rotation_scroll {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-            tap-ms = <30>;
         };
 
         skqr: sticky_key_quick_release {

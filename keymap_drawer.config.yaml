@@ -20,8 +20,7 @@ parse_config:
     "&bt_clr 3": clear 4
     "&bt_clr 4": clear 5
     "&caps_word": caps word
-    "&flash 4": flash
-    "&flash 6": flash
+    "&flash 8": flash
     "&ind_bat": battery status
     "&ind_con": connection status
     "&mkp LCLK": "mouse click"
@@ -36,9 +35,41 @@ parse_config:
     "&msc SCRL_UP": scroll ↑
     "&sk LSHIFT": sticky ⇧
     "&studio_unlock": ZMK Studio
+    "&tmux A": rename
+    "&tmux C": new
+    "&tmux D": detach
+    "&tmux N": tab →
+    "&tmux N1": tab 1
+    "&tmux N2": tab 2
+    "&tmux N3": tab 3
+    "&tmux N4": tab 4
+    "&tmux N5": tab 5
+    "&tmux N6": tab 6
+    "&tmux N7": tab 7
+    "&tmux N8": tab 8
+    "&tmux N9": tab 9
+    "&tmux P": ← tab
+    "&tmux QMARK": help
     "&usb_sel": USB
+    "&vim N1": tab 1
+    "&vim N2": tab 2
+    "&vim N3": tab 3
+    "&vim N4": tab 4
+    "&vim N5": tab 5
+    "&vim N6": tab 6
+    "&vim N7": tab 7
+    "&vim N8": tab 8
+    "&vim N9": tab 9
+    "&vim Q": exit
+    "&vim W": save
+    "&vimQ": QUIT!
+    "&vtabnxt": tab →
+    "&vtabprv": ← tab
+
     GC(Q): lock screen
     GCS(N4): screen copy
+    GS(LBKT): ← tab
+    GS(RBKT): tab →
     GS(N4): screen shot
     HYPR(N4): launch pad
 

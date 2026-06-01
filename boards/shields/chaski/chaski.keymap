@@ -123,7 +123,7 @@
             bindings = <
 // ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
 // ┃   `   ┃   ~   ┃   #   ┃   %   ┃   *   ┃   /   ┃                                ┃  Esc  ┃       ┃ CtrlU ┃       ┃       ┃  Del  ┃
-&kp GRACE &kp TILDE &kp HASH &kp PRCNT &kp STAR &kp SLASH                            &kp ESC  &none   CTL(U)  &none   &none  &kp DEL
+&kp GRAVE &kp TILDE &kp HASH &kp PRCNT &kp STAR &kp SLASH                            &kp ESC  &none   CTL(U)  &none   &none  &kp DEL
 // ┃       ┃       ┃       ┃       ┃       ┃       ┃                                ┃       ┃       ┃       ┃       ┃       ┃       ┃
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                                ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 // ┃   ^   ┃   @   ┃   -   ┃   +   ┃   !   ┃   $   ┃                                ┃ Pg Up ┃ Left  ┃  Up   ┃ Right ┃       ┃ Enter ┃

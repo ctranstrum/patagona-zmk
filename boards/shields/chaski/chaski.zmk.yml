@@ -1,0 +1,13 @@
+file_format: "1"
+id: chaski
+name: Patagona chaski
+type: shield
+url: https://github.com/ctranstrum/patagona
+requires:
+  - xiao_ble
+features:
+  - keys
+siblings:
+  - gigas_unibody
+  - gigas_peripheral
+  - gigas_dongle

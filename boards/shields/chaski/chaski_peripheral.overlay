@@ -1,0 +1,4 @@
+#include "chaski.dtsi"
+#include "chaski_kscan.dtsi"
+
+// vim: expandtab softtabstop=4 shiftwidth=4 filetype=devicetree

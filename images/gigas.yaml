@@ -60,7 +60,7 @@ layers:
   - +
   - ^Z
   - ^X
-  - ^C
+  - {t: ^C, h: Alt}
   - ^D
   - ^V
   - RW
@@ -98,7 +98,7 @@ layers:
   - ↵
   - ⌘Z
   - ⌘X
-  - ⌘C
+  - {t: ⌘C, h: Alt}
   - ⌘D
   - ⌘V
   - scroll ←

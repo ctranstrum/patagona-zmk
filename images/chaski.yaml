@@ -13,18 +13,18 @@ layers:
   - Y
   - ''''
   - ⌫
-  - '&hm GLOBE Tab'
-  - '&hm LSHFT A'
-  - '&hm LCTRL R'
-  - '&hm LALT S'
-  - '&hm LGUI T'
-  - '&hm RALT G'
-  - '&hm RALT M'
-  - '&hm LGUI N'
-  - '&hm LALT E'
-  - '&hm LCTRL I'
-  - '&hm LSHFT O'
-  - '&hm GLOBE RET'
+  - {t: Tab, h: 🌐}
+  - {t: A, h: ⇧}
+  - {t: R, h: ^}
+  - {t: S, h: ⌥}
+  - {t: T, h: ⌘}
+  - {t: G, h: Alt}
+  - {t: M, h: Alt}
+  - {t: N, h: ⌘}
+  - {t: E, h: ⌥}
+  - {t: I, h: ^}
+  - {t: O, h: ⇧}
+  - {t: ↵, h: 🌐}
   - {t: '[', h: tmux}
   - Z
   - X
@@ -33,12 +33,12 @@ layers:
   - V
   - K
   - H
-  - '&mcs'
-  - '&mdc'
-  - '&msb'
+  - {t: ',', s: ;}
+  - {t: ., s: ':'}
+  - {t: /, s: \}
   - ']'
   - {t: '-', h: numpad}
-  - '&lsscw 2 0'
+  - {t: sticky shift, h: navigation, s: caps word}
   - {t: '*', h: function}
   - {t: '@', h: function}
   - {t: ␣, h: symbols}
@@ -58,10 +58,10 @@ layers:
   - ⌫
   - 🌐
   - ^A
-  - '&hm LCTRL BSPC'
-  - '&hm LALT SPC'
-  - '&hm LGUI TAB'
-  - '&hm RALT RET'
+  - {t: ⌫, h: ^}
+  - {t: ␣, h: ⌥}
+  - {t: ⇥, h: ⌘}
+  - {t: ↵, h: Alt}
   - '*'
   - '4'
   - '5'
@@ -100,11 +100,11 @@ layers:
   - ''
   - ⌦
   - 🌐
-  - '&hm LSHFT LG(A)'
-  - '&hm LCTRL BSPC'
-  - '&hm LALT SPC'
-  - '&hm LGUI TAB'
-  - '&hm RALT RET'
+  - {t: ⌘A, h: ⇧}
+  - {t: ⌫, h: ^}
+  - {t: ␣, h: ⌥}
+  - {t: ⇥, h: ⌘}
+  - {t: ↵, h: Alt}
   - PgUp
   - ←
   - ↑
@@ -124,7 +124,7 @@ layers:
   - ''
   - '>'
   - ''
-  - {t: ▽, type: trans}
+  - {type: held}
   - ''
   - <
   - {t: ⇥, h: symbols}
@@ -148,12 +148,12 @@ layers:
   - +
   - '!'
   - $
-  - '&hm RALT PG_UP'
-  - '&hm LGUI LEFT'
-  - '&hm LALT UP'
-  - '&hm LCTRL RIGHT'
+  - {t: PgUp, h: Alt}
+  - {t: ←, h: ⌘}
+  - {t: ↑, h: ⌥}
+  - {t: →, h: ^}
   - ''
-  - '&hm GLOBE RET'
+  - {t: ↵, h: 🌐}
   - (
   - '|'
   - _
@@ -235,8 +235,8 @@ layers:
   - ⏭
   - ''
   - mission control
-  - '&bt_key 3 3'
-  - '&bt_key 4 4'
+  - {t: BT 4, h: clear 4}
+  - {t: BT 5, h: clear 5}
   - ''
   - ''
   - MUTE
@@ -247,13 +247,13 @@ layers:
   - Num 🔒
   - flash
   - ZMK Studio
-  - '&bt_key 0 0'
-  - '&bt_key 1 1'
-  - '&bt_key 3 3'
+  - {t: BT 1, h: clear 1}
+  - {t: BT 2, h: clear 2}
+  - {t: BT 4, h: clear 4}
   - ''
   - VOL DN
   - ''
-  - {t: ▽, type: trans}
+  - {type: held}
   - ''
   - ''
   - {type: held}
@@ -346,3 +346,69 @@ layers:
   - tab →
   flash mode: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
     '', '', '', '', '']
+combos:
+- p: [0, 11]
+  k: ZMK Studio
+  l: [Colemak]
+  a: top
+  o: 1.0
+- p: [3, 4]
+  k: (
+  l: [Colemak]
+- p: [7, 8]
+  k: )
+  l: [Colemak]
+- p: [15, 16]
+  k: '{'
+  l: [Colemak]
+- p: [19, 20]
+  k: '}'
+  l: [Colemak]
+- p: [27, 28]
+  k: '['
+  l: [Colemak]
+- p: [31, 32]
+  k: ']'
+  l: [Colemak]
+- p: [16, 17]
+  k: <
+  l: [Colemak]
+  d: true
+- p: [18, 19]
+  k: '>'
+  l: [Colemak]
+  d: true
+- p: [17, 29]
+  k: mouse click
+  l: [flash mode]
+- p: [13, 25]
+  k: right click
+  l: [flash mode]
+- p: [8, 20]
+  k: mouse ↑
+  l: [flash mode]
+- p: [20, 32]
+  k: mouse ↓
+  l: [flash mode]
+- p: [7, 19]
+  k: mouse ←
+  l: [flash mode]
+- p: [9, 21]
+  k: mouse →
+  l: [flash mode]
+- p: [3, 15]
+  k: scroll ↑
+  l: [flash mode]
+- p: [15, 27]
+  k: scroll ↓
+  l: [flash mode]
+- p: [2, 14]
+  k: scroll ←
+  l: [flash mode]
+- p: [4, 16]
+  k: scroll →
+  l: [flash mode]
+- p: [5, 6]
+  k: flash
+  l: [keyboard]
+  d: true

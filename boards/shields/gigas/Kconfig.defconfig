@@ -26,7 +26,7 @@ config BT_MAX_PAIRED
     default 6
 
 config ZMK_DISPLAY
-    default n
+    default y
 
 config ZMK_IDLE_TIMEOUT
     default 300000

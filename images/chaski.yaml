@@ -130,7 +130,7 @@ layers:
   - {t: ⇥, h: symbols}
   - ␣
   symbols:
-  - GRACE
+  - '`'
   - '~'
   - '#'
   - '%'
@@ -159,7 +159,7 @@ layers:
   - _
   - '&'
   - '?'
-  - BSLH
+  - \
   - PgDn
   - Home
   - ↓

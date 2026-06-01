@@ -1,7 +1,7 @@
 #include <physical_layouts.dtsi>
 
 / {
-    physical_layout_chaski: physical_layout_chaski {
+    chaski_layout: chaski_physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "Patagona chaski";
 

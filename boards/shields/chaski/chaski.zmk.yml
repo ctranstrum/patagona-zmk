@@ -8,6 +8,6 @@ requires:
 features:
   - keys
 siblings:
-  - gigas_unibody
-  - gigas_peripheral
-  - gigas_dongle
+  - chaski_unibody
+  - chaski_peripheral
+  - chaski_dongle

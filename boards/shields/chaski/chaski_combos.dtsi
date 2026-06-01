@@ -16,7 +16,7 @@
         combo_unlock {
             key-positions = <0 11>;
             bindings = <&studio_unlock>;
-            layers = <0>;
+            layers = <0 5>;
         };
 
         combo_left_paren {

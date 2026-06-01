@@ -4,9 +4,9 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <behaviors/rgbled_widget.dtsi>
-#include "gigas_combos.dtsi"
-#include "gigas_behaviors.dtsi"
-#include "gigas_macros.dtsi"
+#include "chaski_combos.dtsi"
+#include "chaski_behaviors.dtsi"
+#include "chaski_macros.dtsi"
 
 // Single mods
 #define CMD(key) &kp LG(key)

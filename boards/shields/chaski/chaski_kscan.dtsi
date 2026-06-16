@@ -22,8 +22,8 @@
             = <&xiao_d 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // top
             , <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // middle
             , <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // bottom
-            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // top
-            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // middle
+            , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // top
+            , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // middle
             , <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)> // bottom
             ;
 

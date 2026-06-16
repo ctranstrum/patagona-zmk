@@ -55,3 +55,10 @@ config ZMK_BLE
     default y
 
 endif
+
+if SHIELD_GIGAS_UNIBODY || SHIELD_GIGAS_PERIPHERAL
+
+config NFCT_PINS_AS_GPIOS
+    default y
+
+endif

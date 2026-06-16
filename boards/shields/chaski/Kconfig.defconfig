@@ -55,3 +55,10 @@ config ZMK_BLE
     default y
 
 endif
+
+if SHIELD_CHASKI_UNIBODY || SHIELD_CHASKI_PERIPHERAL
+
+config NFCT_PINS_AS_GPIOS
+    default y
+
+endif

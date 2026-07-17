@@ -36,8 +36,8 @@ layers:
   - {t: '-', h: numpad}
   - {t: sticky shift, h: navigation, s: caps word}
   - VOL DN
-  - {t: ␣, h: symbols}
-  - {t: '*', h: symbols}
+  - {t: ␣, h: sym-nav}
+  - {t: '*', h: sym-num}
   numpad:
   - Esc
   - ''
@@ -112,9 +112,9 @@ layers:
   - numpad
   - {type: held}
   - scroll ↓
-  - {t: ⇥, h: symbols}
+  - {t: ⇥, h: sym-nav}
   - ␣
-  symbols:
+  sym-nav:
   - '`'
   - '#'
   - '%'
@@ -151,7 +151,45 @@ layers:
   - {t: /, h: navigation}
   - scroll ↓
   - {type: held}
-  - {t: ▽, type: trans}
+  - ''
+  sym-num:
+  - '`'
+  - '#'
+  - '%'
+  - '*'
+  - '7'
+  - '8'
+  - '9'
+  - '-'
+  - ^
+  - '@'
+  - '!'
+  - '='
+  - $
+  - ⏮
+  - '*'
+  - '4'
+  - '5'
+  - '6'
+  - +
+  - '~'
+  - '|'
+  - +
+  - '&'
+  - '?'
+  - RW
+  - Num 🔒
+  - FF
+  - '0'
+  - '1'
+  - '2'
+  - '3'
+  - '='
+  - _
+  - {t: /, h: navigation}
+  - ⏭
+  - ''
+  - {type: held}
   function:
   - ''
   - ''
@@ -405,5 +443,5 @@ combos:
   l: [flash mode]
 - p: [12, 14]
   k: flash
-  l: [keyboard]
+  l: [function]
   d: true

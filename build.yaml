@@ -1,35 +1,35 @@
 include:
   # Patagona gigas
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: gigas_unibody rgbled_adapter
     snippet: studio-rpc-usb-uart
     artifact-name: gigas-unibody
 
   # Patagona gigas with dongle
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: gigas_dongle prospector_adapter rgbled_adapter
     snippet: studio-rpc-usb-uart
     artifact-name: gigas-dongle
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: gigas_peripheral rgbled_adapter
     artifact-name: gigas-peripheral
 
   # Patagona chaski
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: chaski_unibody rgbled_adapter
     snippet: studio-rpc-usb-uart
     artifact-name: chaski-unibody
 
   # Patagona chaski with dongle
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: chaski_dongle prospector_adapter rgbled_adapter
     snippet: studio-rpc-usb-uart
     artifact-name: chaski-dongle
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: chaski_peripheral rgbled_adapter
     artifact-name: chaski-peripheral
 
   # Settings reset file
-  - board: seeeduino_xiao_ble
+  - board: xiao_ble//zmk
     shield: settings_reset
     artifact-name: xiao-ble-reset

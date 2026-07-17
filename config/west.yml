@@ -12,14 +12,14 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       # The revision needs to match in .github/workflows/build.ymn
-      revision: v0.3
+      revision: main
       import: app/west.yml
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: v0.3
+      revision: main
     - name: prospector-zmk-module
       remote: carrefinho
-      revision: main
+      revision: feat/new-status-screens
     - name: zmk-ble-mouse-host
       remote: tadakado
       revision: main

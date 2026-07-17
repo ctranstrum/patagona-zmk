@@ -29,6 +29,7 @@ parse_config:
     "&mmv MOVE_LEFT": mouse ←
     "&mmv MOVE_RIGHT": mouse →
     "&mmv MOVE_UP": mouse ↑
+    "&mouse_pair": pair mouse
     "&msc SCRL_DOWN": scroll ↓
     "&msc SCRL_LEFT": scroll ←
     "&msc SCRL_RIGHT": scroll →

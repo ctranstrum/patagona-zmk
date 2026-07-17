@@ -156,7 +156,7 @@ CMD(Z) CMD(X) Alt LG(C) CMD(D) CMD(V) &msc SCRL_LEFT &kp C_PP &msc SCRL_RIGHT &k
 // ┃       ┃       ┃       ┃       ┃       ┃        ┃  ||<|  ┃        ┃       ┃       ┃       ┃       ┃       ┃
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 // ┃   ~   ┃   |   ┃   +   ┃   &   ┃   ?   ┃┃ <|<|  ┃num lock┃  |>|> ┃┃   0   ┃   1   ┃   2   ┃   3   ┃   =   ┃
-&kp TILDE &kp PIPE &kp PLUS &kp AMPS &kp QMAkp C_RW &kp KP_NUM &kp C_FF &kp N0 &kp N1  &kp N2  &kp N3 &kp EQUAL
+&kp TILDE &kp PIPE &kp PLUS &kp AMPS &kp QMARK &kp C_RW &kp KP_NUM &kp C_FF &kp N0 &kp N1 &kp N2 &kp N3 &kp EQUAL
 // ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
 // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 //                                 ┃   _   ┃   /   ┃┃  |>||  ┃┃       ┃ ##### ┃

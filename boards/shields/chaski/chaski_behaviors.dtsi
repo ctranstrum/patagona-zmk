@@ -54,6 +54,21 @@
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
+        mouse_pair: mouse_pair {
+            compatible = "zmk,behavior-mouse-host-pair";
+            #binding-cells = <0>;
+        };
+
+        mouse_unpair: mouse_unpair {
+            compatible = "zmk,behavior-mouse-host-unpair";
+            #binding-cells = <0>;
+        };
+
+        mouse_dump: mouse_dump {
+            compatible = "zmk,behavior-mouse-host-dump";
+            #binding-cells = <0>;
+        };
+
         msb: mod_slash_back {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;

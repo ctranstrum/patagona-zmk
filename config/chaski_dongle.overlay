@@ -1,0 +1,14 @@
+// See https://github.com/tadakado/zmk-ble-mouse-host
+
+/ {
+    mouse_host: mouse_host {
+        compatible = "zmk,ble-mouse-host";
+    };
+
+    mouse_host_listener {
+        compatible = "zmk,input-listener";
+        device = <&mouse_host>;
+    };
+};
+
+// vim: expandtab softtabstop=4 shiftwidth=4 filetype=devicetree

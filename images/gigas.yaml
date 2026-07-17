@@ -209,7 +209,7 @@ layers:
   - {t: BT 4, h: clear 4}
   - {t: BT 5, h: clear 5}
   - ''
-  - ''
+  - '&mouse_pair'
   - lock screen
   - MUTE
   - Caps 🔒

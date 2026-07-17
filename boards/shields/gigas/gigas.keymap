@@ -173,9 +173,9 @@ CMD(Z) CMD(X) Alt LG(C) CMD(D) CMD(V) &msc SCRL_LEFT &kp C_PP &msc SCRL_RIGHT &k
 // ┃c stat ┃       ┃scrnsht┃scrn cp┃                                          ┃launchp┃  USB  ┃       ┃battery┃
    &ind_con  &none   GS(N4) GCS(N4)                                           HYPR(N4) &usb_sel &none &ind_bat
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃       ┃ prev  ┃ play  ┃ next  ┃       ┃        ┏━━━━━━━━┓        ┃mission┃  BT4  ┃  BT5  ┃       ┃       ┃
-   &none &kp C_PREV &kp C_PP &kp C_NEXT &none      &kp C_BRI_UP        CTL(UP)  BT_(3)  BT_(4)  &none   &none
-// ┃       ┃       ┃       ┃       ┃       ┃        ┃bright +┃        ┃control┃       ┃       ┃       ┃       ┃
+// ┃       ┃ prev  ┃ play  ┃ next  ┃       ┃        ┏━━━━━━━━┓        ┃mission┃  BT4  ┃  BT5  ┃       ┃ mouse ┃
+   &none &kp C_PREV &kp C_PP &kp C_NEXT &none      &kp C_BRI_UP        CTL(UP)  BT_(3) BT_(4) &none &mouse_pair
+// ┃       ┃       ┃       ┃       ┃       ┃        ┃bright +┃        ┃control┃       ┃       ┃       ┃ pair  ┃
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 // ┃scrn lk┃ mute  ┃caps lk┃numlock┃       ┃┃bright-┃ flash  ┃bright+┃┃studio ┃  BT1  ┃  BT2  ┃  BT3  ┃       ┃
 GC(Q) &kp C_MUTE &kp CAPS &kp KP_NUM &none &kp C_BRI_DN &flash 8 &kp C_BRI_UP &studio_unlock BT_(0) BT_(1) BT_(2) &none

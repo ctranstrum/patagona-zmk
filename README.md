@@ -63,6 +63,8 @@ manifest:
       url-base: https://github.com/carrefinho
     - name: englmaxi # <-- another option for a dongle
       url-base: https://github.com/englmaxi
+    - name: tadakado # <-- a module to connect your mouse to the keyboard's ble
+      url-base: https://github.com/tadakado
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -79,6 +81,9 @@ manifest:
       revision: main
     - name: zmk-dongle-display # <-- alternate dongle
       remote: englmaxi
+      revision: main
+    - name: zmk-ble-mouse-host
+      remote: tadakado
       revision: main
   self:
     path: config

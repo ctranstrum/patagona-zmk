@@ -66,20 +66,20 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3
       import: app/west.yml
     - name: patagona-zmk # <-- add this for the keyboard
       remote: ctranstrum
-      revision: main
+      revision: v0.3
     - name: zmk-rgbled-widget # <-- and this for the LED
       remote: caksoylar
-      revision: main
+      revision: v0.3
     - name: prospector-zmk-module # <-- something like this for the dongle
       remote: carrefinho
-      revision: main
+      revision: v0.3
     - name: zmk-dongle-display # <-- alternate dongle
       remote: englmaxi
-      revision: main
+      revision: v0.3
   self:
     path: config
 ```

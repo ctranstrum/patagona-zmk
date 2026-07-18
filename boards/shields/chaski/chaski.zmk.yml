@@ -7,6 +7,7 @@ requires:
   - xiao_ble
 features:
   - keys
+  - studio
 siblings:
   - chaski_unibody
   - chaski_peripheral

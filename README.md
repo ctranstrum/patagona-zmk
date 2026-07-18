@@ -146,7 +146,7 @@ See the pre-compiled firmware [gigas config file][gigas-config]
 or [chaski config file][chaski-config]
 for additional settings you may want to consider.
 
-To customize the keymap for your Charlieflex board,
+To customize the keymap for your Patagona keyboard,
 you can copy the [default gigas keymap][gigas-keymap]
 or [default chaski keymap][chaski-keymap] from this repo
 to the `config` directory of your zmk config repo

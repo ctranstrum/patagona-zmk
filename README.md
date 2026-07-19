@@ -157,7 +157,7 @@ or [default chaski keymap][chaski-keymap] from this repo
 to the `config` directory of your zmk config repo
 and edit it from there.
 
-## Default Gigas Keymap
+## Default Patagona Gigas Keymap
 
 The keymap starts off by using Colemak-DH as the base,
 but it is missing the B and J keys.
@@ -235,9 +235,9 @@ See the graphic below for more details:
 
 ![default gigas keymap](images/gigas.svg)
 
-## Default chaski keymap
+## Default Patagona Chaski Keymap
 
-The keymap for the chaski is a little more straight-forward.
+The keymap for the Patagona chaski is a little more straight-forward.
 
 It uses the Colemak-DH layout as a starting point, and has
 Esc, Tab, Backspace, and Enter on their own keys.
@@ -251,7 +251,7 @@ is held on the right hand.
 
 Both the left and right thumb keys will activate a layer
 with special keyboard functions like changing the bluetooth
-connection, similar to the gigas keyboard.
+connection, similar to the Patagona gigas keyboard.
 
 See the graphic below for details:
 

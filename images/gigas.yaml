@@ -442,6 +442,6 @@ combos:
   k: scroll →
   l: [flash mode]
 - p: [12, 14]
-  k: '&flash 9'
+  k: flash
   l: [keyboard]
   d: true

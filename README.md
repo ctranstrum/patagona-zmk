@@ -2,7 +2,13 @@
 
 This repo contains the firmware for the [Patagona Keyboards][patagona].
 
-To use it, you have two choices:
+> Note: this version of the firmware is running on zmk's "main" branch,
+> which can be unstable.
+> If you have trouble compiling, zmk may have had changes.
+> You can try to fix this repo to be compatible (merge requests welcome!)
+> or choose a different branch of this repo that is pegged to a zmk release.
+
+To use the firmware in this repo, you have two choices:
 
 - download the pre-compiled firmware from the Actions tab of this repository.
 - create your own custom firmware.
@@ -14,6 +20,7 @@ and also includes [ZMK Studio][studio] that allows you to customize the keymap t
 your preferences.
 
 Go into the latest successful "Build default firmware" workflow run
+for the "main" branch
 from the [Actions tab][actions] of this repository,
 scroll to the Artifacts section at the bottom of the page,
 and click on the "firmware" link to download the zipfile.

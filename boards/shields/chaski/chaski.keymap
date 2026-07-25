@@ -176,9 +176,9 @@
 &kp C_BRI_UP &none   &none   GS(N4) GCS(N4) &ind_bat                               &ind_con HYPR(N4) &usb_sel &none &none &kp C_VOL_UP
 // ┃     up┃       ┃       ┃   shot┃   copy┃ status┃                                ┃ status┃    pad┃       ┃       ┃       ┃     up┃
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                                ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
-// ┃       ┃       ┃ prev  ┃ play  ┃ next  ┃       ┃                                ┃mission┃  BT4  ┃  BT5  ┃       ┃ pair  ┃ mute  ┃
-    &none &none &kp C_PREV &kp C_PP &kp C_NEXT &none                                CTL(UP) BT_(3) BT_(4) &none &mouse_pair &kp C_MUTE
-// ┃       ┃       ┃       ┃       ┃       ┃       ┃                                ┃control┃       ┃       ┃       ┃ mouse ┃       ┃
+// ┃       ┃       ┃ prev  ┃ play  ┃ next  ┃       ┃                                ┃mission┃  BT4  ┃  BT5  ┃       ┃       ┃ mute  ┃
+    &none &none &kp C_PREV &kp C_PP &kp C_NEXT &none                                 CTL(UP) BT_(3)  BT_(4)   &none  &none &kp C_MUTE
+// ┃       ┃       ┃       ┃       ┃       ┃       ┃                                ┃control┃       ┃       ┃       ┃       ┃       ┃
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫                                ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 // ┃bright ┃screen ┃       ┃caps   ┃num    ┃ flash ┃                                ┃studio ┃  BT1  ┃  BT2  ┃  BT3  ┃       ┃volume ┃
 &kp C_BRI_DN GC(Q) &none &kp CAPS &kp KP_NUM &flash 8                           &studio_unlock BT_(0) BT_(1) BT_(3) &none &kp C_VOL_DN

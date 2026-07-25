@@ -34,11 +34,11 @@
         compatible = "zmk,conditional-layers";
         fn_layer {
             if-layers = <1 2>;
-            then-layer = <4>;
+            then-layer = <5>;
         };
         kbd_layer {
             if-layers = <2 3>;
-            then-layer = <5>;
+            then-layer = <6>;
         };
     };
 
@@ -52,7 +52,7 @@
             bindings = <
 // ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
 // ┃   Q   ┃   W   ┃   F   ┃   P   ┃                                          ┃   L   ┃   U   ┃   Y   ┃  ' "  ┃
-   &lt 6 Q   &kp W   &kp F   &kp P                                              &kp L   &kp U   &kp Y  &kp SQT
+   &lt 7 Q   &kp W   &kp F   &kp P                                              &kp L   &kp U   &kp Y  &kp SQT
 // ┃  vim  ┃       ┃       ┃       ┃                                          ┃       ┃       ┃       ┃       ┃
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 // ┃   A   ┃   R   ┃   S   ┃   T   ┃   G   ┃        ┏━━━━━━━━┓        ┃   M   ┃   N   ┃   E   ┃   I   ┃   O   ┃
@@ -60,12 +60,12 @@
 // ┃ Shift ┃ Ctrl  ┃  Opt  ┃  Cmd  ┃ Globe ┃        ┃  vol+  ┃        ┃ Globe ┃  Cmd  ┃  Opt  ┃ Ctrl  ┃ Shift ┃
 // ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
 // ┃   Z   ┃   X   ┃   C   ┃   D   ┃   V   ┃┃<- tab ┃  MUTE  ┃ tab ->┃┃   K   ┃   H   ┃  , ;  ┃  . :  ┃  / \  ┃
-   &lt 7 Z   &kp X   Alt C   &kp D   &kp V GS(LBKT) &kp C_MUTE GS(RBKT) &kp K &kp H &hmcs RALT 0 &mdc    &msb
+   &lt 8 Z   &kp X   Alt C   &kp D   &kp V GS(LBKT) &kp C_MUTE GS(RBKT) &kp K &kp H &hmcs RALT 0 &mdc    &msb
 // ┃ tmux  ┃       ┃ R Alt ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃ R Alt ┃       ┃       ┃
 // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
 //                                 ┃   -   ┃ SHIFT ┃┃  vol-  ┃┃ SPACE ┃   *   ┃
-                            &lt 1 MINUS &lsscw 2 0 &kp C_VOL_DN &lt 3 SPC &lt 3 STAR
-//                                 ┃  num  ┃  nav  ┃┗━━━━━━━━┛┃  sym  ┃  sym  ┃
+                            &lt 1 MINUS &lsscw 2 0 &kp C_VOL_DN &lt 3 SPC &lt 4 STAR
+//                                 ┃  num  ┃  nav  ┃┗━━━━━━━━┛┃sym-nav┃sym-num┃
 //                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
             >;
         };
@@ -120,7 +120,7 @@ CMD(Z) CMD(X) Alt LG(C) CMD(D) CMD(V) &msc SCRL_LEFT &kp C_PP &msc SCRL_RIGHT &k
 
         sym {
 //                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
-            display-name = "symbols"               ;
+            display-name = "sym-nav"               ;
 //                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
             bindings = <
 // ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
@@ -135,8 +135,32 @@ CMD(Z) CMD(X) Alt LG(C) CMD(D) CMD(V) &msc SCRL_LEFT &kp C_PP &msc SCRL_RIGHT &k
 &kp TILDE &kp PIPE &kp PLUS &kp AMPS &kp QMARK &msc SCRL_LEFT &kp C_PP &msc SCRL_RIGHT &kp PG_DN &kp HOME Alt DOWN &kp END &kp SPC
 // ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃ R Alt ┃       ┃       ┃
 // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                 ┃   _   ┃   /   ┃┃ scroll ┃┃ ##### ┃ ##### ┃
-                                &kp UNDER &lt 2 SLASH &msc SCRL_DOWN &trans &trans
+//                                 ┃   _   ┃   /   ┃┃ scroll ┃┃ ##### ┃       ┃
+                                &kp UNDER &lt 2 SLASH &msc SCRL_DOWN &trans &none
+//                                 ┃       ┃ keybd ┃┗━━━━━━━━┛┃       ┃       ┃
+//                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
+            >;
+        };
+
+        symnum {
+//                       ┏━━━━━━━━━━━━━━━━━━━━━━━━━┓
+            display-name = "sym-num"               ;
+//                       ┗━━━━━━━━━━━━━━━━━━━━━━━━━┛
+            bindings = <
+// ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓                                          ┏━━━━━━━┳━━━━━━━┳━━━━━━━┳━━━━━━━┓
+// ┃   `   ┃   #   ┃   %   ┃   *   ┃                                          ┃   7   ┃   8   ┃   9   ┃   -   ┃
+&kp GRAVE &kp HASH &kp PRCNT &kp STAR                                          &kp N7  &kp N8 &kp N9 &kp MINUS
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┓                          ┏━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃   ^   ┃   @   ┃   !   ┃   =   ┃   $   ┃        ┏━━━━━━━━┓        ┃   .   ┃   4   ┃   5   ┃   6   ┃   +   ┃
+&kp CARET &kp AT &kp EXCL &kp EQUAL &kp DLLR        &kp C_PREV         &kp DOT &kp N4  &kp N5  &kp N6 &kp PLUS
+// ┃       ┃       ┃       ┃       ┃       ┃        ┃  ||<|  ┃        ┃       ┃       ┃       ┃       ┃       ┃
+// ┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫┏━━━━━━━╋━━━━━━━━╋━━━━━━━┓┣━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━╋━━━━━━━┫
+// ┃   ~   ┃   |   ┃   +   ┃   &   ┃   ?   ┃┃ <|<|  ┃num lock┃  |>|> ┃┃   0   ┃   1   ┃   2   ┃   3   ┃   =   ┃
+&kp TILDE &kp PIPE &kp PLUS &kp AMPS &kp QMARK &kp C_RW &kp KP_NUM &kp C_FF &kp N0 &kp N1 &kp N2 &kp N3 &kp EQUAL
+// ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
+//                                 ┃   _   ┃   /   ┃┃  |>||  ┃┃       ┃ ##### ┃
+                                  &kp UNDER &lt 2 SLASH &kp C_NEXT &none &trans
 //                                 ┃       ┃ keybd ┃┗━━━━━━━━┛┃       ┃       ┃
 //                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
             >;
@@ -228,8 +252,8 @@ GC(Q) &kp C_MUTE &kp CAPS &kp KP_NUM &none &kp C_BRI_DN &flash 8 &kp C_BRI_UP &s
     &trans   &none   &none   &none   &none   &tmux P &tmux D  &tmux N  &none &tmux N1 &tmux N2 &tmux N3 &none
 // ┃       ┃       ┃       ┃       ┃       ┃┗━━━━━━━┫        ┣━━━━━━━┛┃       ┃       ┃       ┃       ┃       ┃
 // ┗━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━╋━━━━━━━╋━━━━━━━┓┣━━━━━━━━┫┏━━━━━━━╋━━━━━━━╋━━━━━━━┻━━━━━━━┻━━━━━━━┻━━━━━━━┛
-//                                 ┃       ┃       ┃┃        ┃┃  new  ┃rename ┃
-                                     &none    &none   &none    &tmux C &tmux A
+//                                 ┃ CtrlA ┃ CtrlB ┃┃        ┃┃  new  ┃rename ┃
+                                   &kp LC(A) &kp LC(B) &none   &tmux C &tmux A
 //                                 ┃       ┃       ┃┗━━━━━━━━┛┃       ┃       ┃
 //                                 ┗━━━━━━━┻━━━━━━━┛          ┗━━━━━━━┻━━━━━━━┛
             >;
@@ -261,10 +285,6 @@ GC(Q) &kp C_MUTE &kp CAPS &kp KP_NUM &none &kp C_BRI_DN &flash 8 &kp C_BRI_UP &s
         };
 
         // Extra empty layers for ZMK Studio
-        layer9 {
-            status = "reserved";
-        };
-
         layer10 {
             status = "reserved";
         };

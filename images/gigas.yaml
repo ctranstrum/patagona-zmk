@@ -443,5 +443,5 @@ combos:
   l: [flash mode]
 - p: [12, 14]
   k: flash
-  l: [function]
+  l: [keyboard]
   d: true

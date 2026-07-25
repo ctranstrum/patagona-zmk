@@ -1,0 +1,13 @@
+// Layers
+#define _CLMK 0
+#define _NUM 1
+#define _NAV 2
+#define _SYMV 3
+#define _SYMN 4
+#define _FN 5
+#define _KBD 6
+#define _VIM 7
+#define _TMUX 8
+#define _FLSH 9
+
+// vim: expandtab softtabstop=4 shiftwidth=4

@@ -2,6 +2,9 @@
 
 This repo contains the firmware for the [Patagona Keyboards][patagona].
 
+> Note: this version of the firmware is pegged to v0.3 of ZMK.
+> If this is not what you want, please select a different branch.
+
 To use it, you have two choices:
 
 - download the pre-compiled firmware from the Actions tab of this repository.
